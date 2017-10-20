@@ -1,0 +1,41 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=2.5cm,right=2cm,top=3cm]{geometry}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\begin{document}
+
+	% Logo FIT
+	\AddToShipoutPictureBG{
+		\AtPageUpperLeft{\raisebox{-\height}{\includegraphics[scale=0.50]{fit-logo.pdf}}}
+	}
+	
+	% Turn off numbering
+	\pagenumbering{gobble}	
+
+	\setlength{\parindent}{0pt}
+	\vspace*{10pt}
+	\LARGE \textsc{Abstrakt}
+	\normalsize
+
+	\vspace*{5pt}
+	\textit{Projekt do předmětu SIN - Inteligentní systémy} \\
+	\textit{Téma č. 2, Subsystém inteligentní budovy} \\
+	\textit{Řešitelé: Daniel Dušek (xdusek21), Anna Popková (xpopko00)}
+
+	\setlength{\parindent}{15pt}
+	\setlength{\parskip}{15pt}
+	\renewcommand{\baselinestretch}{1.5}
+	\vspace*{15pt}
+	V projektu bude navržen model podsystému inteligentní budovy a realizován systém řízené tohoto podsystému. Návrh a řízení se bude týkat místnosti -- ložnice, ve které budou umístěny světelné, tepelné, vlhkostní a pohybové senzory. Cílem bude vytvářet optimální prostředí pro spánek, popř. denní činnosti, ke kterým může být ložnice využita. 
+
+	Dle geografické pozice a času budou zatahovány světlo nepropouštějící rolety, které budou zajišťovat, že každý den bude ve stejný čas v místnosti odpovídající úroveň osvětlení dle uživatelsky navolených časů. Obráceně pak ráno budou žaluzie buď automaticky roztahovány, aby propustili světlo v čase vstávání do pokoje, nebo zůstanou zatažené (v případě brzkého rozednění) a postupně bude přidávána intenzita umělého chladného osvětlení.
+
+	Subsytém bude také sledovat vlhost v místnosti a dle její úrovně spouštět zvhlčovač vzduchu. V období zimy bude taktéž automaticky regulovat teplotu v místnosti. Pohybové senzory v místnosti budou sloužit k detekci probuzení uživatele, aby v případě nutnosti opustit ložnici v průběhu noci mohly být rozsvíceny jemné, červené diody umožňující lepší orientaci ve tmě bez nutnosti přivykání očí na světlo.
+	
+\end{document}
