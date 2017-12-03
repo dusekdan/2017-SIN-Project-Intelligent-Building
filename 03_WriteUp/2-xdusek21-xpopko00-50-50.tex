@@ -21,7 +21,7 @@
 
 	\setlength{\parindent}{0pt}
 	\vspace*{10pt}
-	\LARGE \textsc{Abstrakt}
+	\LARGE \textsc{Dokumentace}
 	\normalsize
 
 	\vspace*{5pt}
@@ -75,16 +75,16 @@
     \subsection{Agenti}
     \textbf{WorldAgent} - Simuluje změny v okolním světě. Je zodpovědný za změny teploty v průběhu dne a v průběhu roku. Informace pro tyto změny čerpá z průměrných teplot v ČR v průběhu roku a náhodně osciluje v jejich blízkosti. Dále je zodpovědný za změnu vlhkosti vzduchu a jasu světla v průběhu dne. Informace jsou opět čerpány na základně průměrných hodnot v ČR v průběhu roku. Přijme-li WorldAgent informaci od některého z aktivních zařízení, že pracuje, promítne odpovídající změny do aktuálního stavu světa (příklad: topení (\textit{Heater} zašle zprávu, že se aktivoval, WorldAgent na základě této informace zvedne s korekcí vůči teplotě venku, teplotu uvnitř místnosti)).
     
-    \textbf{SmartBedroomAgent} - Komunikuje s \textit{WorldAgent} a žádá ho o pravidelné zprávy o změnách podmínek v reálném světě. Data z těchto podmínek zpracovává a nastavuje svým vnitřním vlastnostem, které slouží jako senzory. Informace z těchto senzorů následně komunikuje směrem k nástroji Domoticz. Přijímá řídící příkazy od Domoticz nástroje, které říkají jaké zařízení by se mělo aktivovat nebo deaktivovat. Tyto řídící příkazy deleguje prostřednictvím zpráv aktivním zařízením v místnosti. 
+    \textbf{SmartBedroomAgent} - Komunikuje s \textit{WorldAgent} a žádá ho o pravidelné zprávy o~změnách podmínek v reálném světě. Data z těchto podmínek zpracovává a nastavuje svým vnitřním vlastnostem, které slouží jako senzory. Informace z těchto senzorů následně komunikuje směrem k nástroji Domoticz. Přijímá řídící příkazy od Domoticz nástroje, které říkají jaké zařízení by se mělo aktivovat nebo deaktivovat. Tyto řídící příkazy deleguje prostřednictvím zpráv aktivním zařízením v místnosti. 
     
-    \textbf{Humidifier, Dehumidifier} - Tito agenti zvyšují respektive snižují úroveň vlhkosti v místnosti. Reagují na zprávu od \textit{SmartBedroomAgent}, na základě které se aktivují nebo deaktivují. V pravidelných intervalech posílají zprávu \textit{WorldAgent} o tom, že jsou aktivní. \textit{WorldAgent} na základě těchto zpráv upravuje podmínky v simulačním světě.
+    \textbf{Humidifier, Dehumidifier} - Tito agenti zvyšují respektive snižují úroveň vlhkosti v~místnosti. Reagují na zprávu od \textit{SmartBedroomAgent}, na základě které se aktivují nebo deaktivují. V pravidelných intervalech posílají zprávu \textit{WorldAgent} o tom, že jsou aktivní. \textit{WorldAgent} na základě těchto zpráv upravuje podmínky v simulačním světě.
     
     \textbf{Heater, Cooler} - Agenti zodpovědní za zvyšování respektive snižování teploty v místnosti. (De)aktivováni zprávou od \textit{SmartBedroomAgent}, jsou-li aktivní, pravidelně o této skutečnosti informují \textit{WorldAgent}.
     
     \textbf{Illuminator, Dimmer} - Agenti reprenzetující osvětlující diody a rolety. (De)aktivováni jsou na základě zprávy od \textit{SmartBedroomAgent}, který obdrží od Domaticz nástroje informaci o tom, že je je třeba aktivovat na základě uživatelsky předvolených proměnných (tedy nastavení kdy chce uživatel spát a vstávat).
 
     \subsection{Hierarchie agentů}
-    Na nejvyšší úrovni v systému vystupují agenti \textit{WorldAgent} a \textit{SmartBedroomAgent}, kde druhý jmenovaný přijímá řídící příkazy od nástroje Domoticz, který je také možné považovat za agenta v tomto systému. Byl-li by uvažován za agenta v tomto systému, pak by byl ještě o úroveň výše než \textit{WorldAgent} a \textit{SmartBedroomAgent}. Pod \textit{SmartBedroomAgent} jsou umístěny agenti reprezentující aktivní zařízení v místnosti. Tyto aktivní zařízení přijímají příkazy od \textit{BedroomAgent} a v případě, že jsou na vyžádání aktivní, hlásí tuto informaci \textit{WorldAgent}, který ji dle svých pravidel zpracovává a promítá do aktuálního stavu světa. Hierarchie je k náhlédnutí na obrázku 1.
+    Na nejvyšší úrovni v systému vystupují agenti \textit{WorldAgent} a \textit{SmartBedroomAgent}, kde druhý jmenovaný přijímá řídící příkazy od nástroje Domoticz, který je také možné považovat za~agenta v tomto systému. Byl-li by uvažován za agenta v tomto systému, pak by byl ještě o~úroveň výše než \textit{WorldAgent} a \textit{SmartBedroomAgent}. Pod \textit{SmartBedroomAgent} jsou umístěny agenti reprezentující aktivní zařízení v místnosti. Tyto aktivní zařízení přijímají příkazy od~\textit{BedroomAgent} a v případě, že jsou na vyžádání aktivní, hlásí tuto informaci \textit{WorldAgent}, který ji dle svých pravidel zpracovává a promítá do aktuálního stavu světa. Hierarchie agentů je k~náhlédnutí na obrázku 1.
 
     \begin{figure}[h!]
         \includegraphics[scale=0.22]{resources/AgentHierarchy.png}
