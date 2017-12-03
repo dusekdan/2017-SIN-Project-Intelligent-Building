@@ -1,0 +1,38 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=2.5cm,right=2cm,top=3cm]{geometry}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\begin{document}
+
+	% Logo FIT
+	\AddToShipoutPictureBG{
+		\AtPageUpperLeft{\raisebox{-\height}{\includegraphics[scale=0.50]{fit-logo.pdf}}}
+	}
+	
+	% Turn off numbering
+	\pagenumbering{gobble}	
+
+	\setlength{\parindent}{0pt}
+	\vspace*{10pt}
+	\LARGE \textsc{Abstrakt}
+	\normalsize
+
+	\vspace*{5pt}
+	\textit{Projekt do předmětu SIN - Inteligentní systémy} \\
+	\textit{Téma č. 2, Subsystém inteligentní budovy} \\
+	\textit{Řešitelé: Daniel Dušek (xdusek21), Anna Popková (xpopko00)}
+
+	\setlength{\parindent}{15pt}
+	\setlength{\parskip}{15pt}
+	\renewcommand{\baselinestretch}{1.5}
+	\vspace*{15pt}
+	
+	To be done.
+	
+\end{document}
