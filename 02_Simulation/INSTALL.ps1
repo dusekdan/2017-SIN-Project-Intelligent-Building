@@ -1,0 +1,2 @@
+# Make sure PS2 and lower handle this script as well
+(New-Object Net.WebClient).DownloadFile("http://www.stud.fit.vutbr.cz/~xdusek21/SIN/2017-SIN-Intelligent-Building-Simulation.jar", "2017-SIN-Intelligent-Building-Simulation.jar")

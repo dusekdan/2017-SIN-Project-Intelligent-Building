@@ -1,0 +1,12 @@
+Follow these steps to get application up and running in no time:
+1. Install Domoticz on port 127.0.0.1:8888 (or launch it on that address)
+- If you for some reason can not do that, navigate to BedroomAgent and update `domoticzBaseUrl` property so it points to address of your choice.
+2. Use IntelliJ to open this project
+3. Upon opening project in IntelliJ click 'Import changes' in Maven dialog or just manually re-import pom.xml file
+4. Add run configuration with following properties:
+    - Main class: jade.Boot
+    - Program arguments: -gui "WorldAgent:Agents.WorldAgent;"
+    // This means that jade.Boot class will be launched when you hit 'Run project', jade.Boot benefits from having
+    // reference to starting Agent, which in our case is WorldAgent under Agents package. WorldAgent then spawns other
+    // all the other agents required for application to run.
+5. Start configuration you just created
